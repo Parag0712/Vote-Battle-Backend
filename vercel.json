@@ -2,7 +2,5 @@
     "version": 2,
     "name": "native-server",
     "builds": [{ "src": "dist/index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "/dist/index.js" }],
-    "buildCommand": "npm run prisma-generate && npm run build",
-    "outputDirectory": "dist"
+    "routes": [{ "src": "/(.*)", "dest": "/dist/index.js" }]
   }
