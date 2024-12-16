@@ -1,6 +1,18 @@
 {
     "version": 2,
     "name": "native-server",
-    "builds": [{ "src": "dist/index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "/dist/index.js" }]
+    "builds": [
+      {
+        "src": "dist/index.js",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["prisma/schema.prisma", "node_modules/.prisma/**/*"]
+        }
+      }
+    ],
+    "routes": [{ "src": "/(.*)", "dest": "/dist/index.js" }],
+    "scripts": {
+      "build": "npx prisma generate && tsc"
+    }
   }
+  
