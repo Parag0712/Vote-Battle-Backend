@@ -9,7 +9,7 @@
     "server": "nodemon dist/index.js",
     "copy-files": "copyfiles  -u 1 \"src/views/**/*\" dist/",
     "watch-views": "nodemon --watch src/views -e ejs -x \"npm run copy-files\"",
-    "build": "npm run prisma-generate && concurrently \"tsc\" \"npm run copy-files\"",
+    "build": "concurrently \"tsc\" \"npm run copy-files\"",
     "dev": "npm run prisma-generate && concurrently \"npm run watch\" \"npm run server\" \"npm run watch-views\"",
     "prisma-generate": "prisma generate"
   },
