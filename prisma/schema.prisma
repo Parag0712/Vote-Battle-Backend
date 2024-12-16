@@ -5,6 +5,7 @@
 // Prisma Client Generator
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/client"
 }
 
 // prisma db connection
