@@ -136,7 +136,7 @@ router.delete("/:id", authMiddleware,async (req: Request, res: Response) => {
 
         // * Remove Clash items images
         if (clashItems.length > 0) {
-            clashItems.forEach((item) => {
+            clashItems.forEach((item: { image: string }) => {
                 removeImage(item.image);
             });
         }
