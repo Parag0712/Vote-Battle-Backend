@@ -228,7 +228,7 @@ router.post("/items", authMiddleware, authMiddleware, async (req: Request, res: 
                 uploadedImages.push(uploadImage(img));
             });
 
-            uploadedImages.map(async (item) => {
+            uploadedImages.map(async (item:string) => {
                 await prisma.clashItem.create({
                     data: {
                         image: item,
