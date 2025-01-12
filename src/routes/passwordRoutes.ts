@@ -3,7 +3,7 @@ import prisma from "../config/database.js";
 import { authLimiter } from "../config/rateLimiter.js";
 import { forgetPasswordSchema, resetPasswordSchema } from "../validations/passwordValidation.js";
 import { checkDateHourDifference, formatError, generateRandomNum, renderEmailEjs } from "../helper.js";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { ZodError } from "zod";
 import { emailQueue, emailQueueName } from "../jobs/EmailQueue.js";
 

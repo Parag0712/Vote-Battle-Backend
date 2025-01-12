@@ -1,13 +1,13 @@
-import { Router, Request, Response } from "express";
-import { loginSchema, registerSchema } from "../validations/authValidation.js";
-import { ZodError } from "zod";
-import { formatError, generateRandomNum, renderEmailEjs } from "../helper.js";
-import prisma from "../config/database.js";
-import bcrypt, { compare } from "bcrypt";
-import { emailQueue, emailQueueName } from "../jobs/EmailQueue.js";
+import bcrypt from "bcryptjs";
+import { Request, Response, Router } from "express";
 import jwt from "jsonwebtoken";
-import authMiddleware from "../middleware/AuthMiddleware.js";
+import { ZodError } from "zod";
+import prisma from "../config/database.js";
 import { authLimiter } from "../config/rateLimiter.js";
+import { formatError, generateRandomNum, renderEmailEjs } from "../helper.js";
+import { emailQueue, emailQueueName } from "../jobs/EmailQueue.js";
+import authMiddleware from "../middleware/AuthMiddleware.js";
+import { loginSchema, registerSchema } from "../validations/authValidation.js";
 
 const router = Router();
 

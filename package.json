@@ -9,8 +9,8 @@
     "server": "nodemon dist/index.js",
     "copy-files": "copyfiles  -u 1 \"src/views/**/*\" dist/",
     "watch-views": "nodemon --watch src/views -e ejs -x \"npm run copy-files\"",
-    "build": "npm i && prisma generate && tsc && npm run copy-files",
-    "dev": "npm run prisma-generate && concurrently \"npm run watch\" \"npm run server\" \"npm run watch-views\"",    
+    "build": "npm i && npx prisma migrate deploy && prisma generate && tsc && npm run copy-files",
+    "dev": "concurrently \"npm run watch\" \"npm run server\" \"npm run watch-views\"",
     "postinstall": "prisma generate"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
   "dependencies": {
     "@prisma/client": "^5.19.1",
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "bullmq": "^5.13.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/ejs": "^3.1.5",
     "@types/express": "^4.17.21",
